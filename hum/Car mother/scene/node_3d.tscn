@@ -22,13 +22,15 @@ transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999998, 0, -0.999998, -4.371
 polygon = PackedVector2Array(0.0224246, 1.08142, 0.471058, 0.93008, 0.70116, 0.920773, 1.18792, 1.04992, 1.26119, 0.95937, 0.76453, 0.548096, 0.61373, -0.155514, 0.441763, -0.15271, 0.357479, 0.571949, -0.0519773, 0.921028)
 depth = 0.5
 
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.249808, -0.00490312, -2.14322e-10, 0, -4.37114e-06, 100, -0.00980624, 0.124904, 5.45972e-09, -0.119664, 57.4988, -0.303595)
+polygon = PackedVector2Array(-0.218258, 1.01381, 0.88091, 1.06739, 0.933262, 0.170557, 0.686296, -0.179044, -0.0223534, -0.248757, -0.234558, 0.17319)
+depth = 0.19
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="MeshInstance3D/CSGPolygon3D2"]
+transform = Transform3D(1, 6.10195e-16, -1.49012e-08, -6.70552e-08, -4.37114e-08, -1, 6.66134e-16, 1, -4.37114e-08, -0.105998, 0.969254, 0.679087)
+polygon = PackedVector2Array(0.0204157, 0.783926, 0.40773, 0.859507, 0.816445, 0.782574, 1.0417, -0.792562, -0.164902, -0.79298)
+depth = 0.15
+
 [node name="player" parent="." instance=ExtResource("1_jb01p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00791979, 19.5372, -0.000809669)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0982629, 18.4887, 0.0304217)
-size = Vector3(1, 0.185, 1)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.120585, 0.163507, -2.21283)
-polygon = PackedVector2Array(-0.0949068, 0.347393, -0.0323896, 0.997836, 0.862682, 1.00262, 0.757878, 0.526991, 0.580391, 0.240775, 0.115864, 0.151487)
