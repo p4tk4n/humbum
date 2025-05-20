@@ -20,3 +20,4 @@ shape = SubResource("ConvexPolygonShape3D_qvlqn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.806613, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316328, 0.115099)
