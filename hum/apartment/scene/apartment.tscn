@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cl170vch18xi8"]
+
+[node name="Apartment" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.983255, 0.00222637, 0.182222, 0, 0.999925, -0.012217, -0.182236, -0.0120124, -0.983182, 1169.41, 470.344, -1421.17)
+light_color = Color(0.924571, 0.316493, 0, 1)
+light_energy = 7.0
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.765, -16.8853, -475.467)
+size = Vector3(1160.81, 2, 1504.79)
