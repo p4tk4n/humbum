@@ -3,7 +3,12 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var gravity = 9.81
-const SENSITIVITY = 0.02
+var sensitivity = 0.02
+
+#head bobbing
+var bobbing_freq := 1.0
+var bobbing_amp := 0.08
+var bobbing_t := 0.0
 
 @onready var head = $head
 @onready var camera = $head/Camera3D
@@ -11,10 +16,12 @@ const SENSITIVITY = 0.02
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+		head.rotate_y(-event.relative.x * sensitivity)
+		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _physics_process(delta: float) -> void:
@@ -35,5 +42,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
-
+	
+	bobbing_t += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(bobbing_t)
 	move_and_slide()
+
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * bobbing_freq) * bobbing_amp
+	return pos
