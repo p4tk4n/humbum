@@ -21,6 +21,7 @@ var can_sprint = true
 @onready var head = $head
 @onready var camera = $head/Camera3D
 @onready var sprint_bar = $hud_layer/BoxContainer/sprint_bar
+@onready var sprint_delay_timer = $sprint_delay_timer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -40,21 +41,32 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	#sprintovanie
+	
+	
+	# Sprint control
 	if Input.is_action_pressed("sprint") and can_sprint:
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 	
-	if speed > 5.0 and sprint_bar.value < sprint_bar.max_value:
-		sprint_bar.value += delta * sprint_bar_progress_speed	 	
-	elif speed < 5.0:
+	# Handle sprint bar filling when sprinting
+	if speed > 5.0 and can_sprint:
+		sprint_bar.value += delta * sprint_bar_progress_speed
+		if sprint_bar.value >= sprint_bar.max_value:
+			can_sprint = false  # Disable sprint when bar fills completely
+	
+	# Handle sprint bar depletion when not sprinting
+	elif sprint_delay_timer.is_stopped():
 		sprint_bar.value -= delta * sprint_bar_progress_speed
-	elif sprint_bar.value >= sprint_bar.max_value:
-		can_sprint = false
-	elif sprint_bar.value < sprint_bar.max_value:
-		can_sprint = true
-		
-		
+		can_sprint = true  # Allow sprinting while recharging
+	
+	# Start depletion delay when stopping sprint
+	if Input.is_action_just_released("sprint"):
+		sprint_delay_timer.start(0.5)  # Shorter 0.5s delay
+	
+	# Final can_sprint check
+	can_sprint = can_sprint and sprint_bar.value < sprint_bar.max_value
+	
 	#movement
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -83,3 +95,6 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * bobbing_freq) * bobbing_amp
 	pos.x = cos(time * bobbing_freq / 2) * bobbing_amp
 	return pos
+
+#func _on_sprint_delay_timer_timeout() -> void:
+	

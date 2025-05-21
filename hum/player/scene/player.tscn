@@ -31,13 +31,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -215.0
-offset_top = -10.0
+offset_top = -5.0
 offset_right = 215.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 
 [node name="sprint_bar" type="ProgressBar" parent="hud_layer/BoxContainer"]
-custom_minimum_size = Vector2(430, 10)
+custom_minimum_size = Vector2(430, 5)
 layout_mode = 2
 show_percentage = false
+
+[node name="sprint_delay_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="sprint_delay_timer" to="." method="_on_sprint_delay_timer_timeout"]
