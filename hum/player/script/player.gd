@@ -26,6 +26,22 @@ var can_sprint = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	_toggle_phone_menu()
+	
+func _toggle_phone_menu(state = null):
+	match state:
+		"on":
+			phone.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		"off":
+			phone.visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		_:
+			phone.visible = not phone.visible
+			if Input.MOUSE_MODE_CAPTURED:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -44,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	#sprintovanie
 	
 	if Input.is_action_just_pressed("open_phone"):
-		phone.visible = not phone.visible
+		_toggle_phone_menu()
 	
 	# Sprint control
 	if Input.is_action_pressed("sprint") and can_sprint:

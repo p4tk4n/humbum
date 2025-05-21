@@ -32,11 +32,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
-alignment = 1
 vertical = true
 
 [node name="customer_module" parent="Panel/BoxContainer" instance=ExtResource("3_nmvop")]
 layout_mode = 2
+location_text = "Bratislava, Nivy"
+
+[node name="customer_module2" parent="Panel/BoxContainer" instance=ExtResource("3_nmvop")]
+layout_mode = 2
+location_text = "Bratislava, Astrova"
