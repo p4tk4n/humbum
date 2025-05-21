@@ -10,6 +10,9 @@ func _switch_to_scene(scene_path):
 	await FadingEffect.on_transition_finished
 	get_tree().change_scene_to_file(scene_path)
 
+func _exit_game():
+	get_tree().quit()
+
 func _toggle_pause_menu(state = null):
 	match state:
 		"on":
@@ -33,4 +36,7 @@ func _on_return_button_pressed() -> void:
 	_toggle_pause_menu("off")
 
 func _on_exit_button_pressed() -> void:
+	_exit_game()
+
+func _on_menu_button_pressed() -> void:
 	_switch_to_scene("res://main_menu/scene/main_menu.tscn")

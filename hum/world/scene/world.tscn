@@ -29,7 +29,7 @@ uv1_triplanar = true
 points = PackedVector3Array(50.7837, 1.88095, 50.7837, -50.7837, -1.29365, -50.7837, -50.7837, 1.88095, -50.7837, 50.7837, -1.29365, -50.7837, -50.7837, -1.29365, 50.7837, -50.7837, 1.88095, 50.7837, 50.7837, 1.88095, -50.7837, 50.7837, -1.29365, 50.7837)
 
 [node name="world" type="Node3D"]
-transform = Transform3D(1.00226, 0, 0, 0, 1.00226, 0, 0, 0, 1.00226, 0.130314, 0.0016861, 0.203369)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130314, 0.0016861, 0.203369)
 script = ExtResource("1_8t1cy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -74,6 +74,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return"
 
+[node name="menu_button" type="Button" parent="pause_menu/Panel/BoxContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Menu"
+
 [node name="exit_button" type="Button" parent="pause_menu/Panel/BoxContainer"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
@@ -92,4 +99,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_41er0")
 shape = SubResource("ConvexPolygonShape3D_73da7")
 
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/return_button" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="pause_menu/Panel/BoxContainer/menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
