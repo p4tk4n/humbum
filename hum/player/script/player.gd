@@ -20,8 +20,9 @@ var can_sprint = true
 
 @onready var head = $head
 @onready var camera = $head/Camera3D
-@onready var sprint_bar = $hud_layer/BoxContainer/sprint_bar
+@onready var sprint_bar = $hud_layer/sprint_bar_container/sprint_bar
 @onready var sprint_delay_timer = $sprint_delay_timer
+@onready var phone = $hud_layer/phone_container/phone
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,6 +43,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	#sprintovanie
 	
+	if Input.is_action_just_pressed("open_phone"):
+		phone.visible = not phone.visible
 	
 	# Sprint control
 	if Input.is_action_pressed("sprint") and can_sprint:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgotxrbycmc5h"]
+[gd_scene load_steps=11 format=3 uid="uid://bgotxrbycmc5h"]
 
 [ext_resource type="Script" uid="uid://b0tne5fenda5y" path="res://world/script/world.gd" id="1_8t1cy"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fun32"]
 [ext_resource type="Texture2D" uid="uid://caytwje3b08ab" path="res://world/resources/1K/Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="3_73da7"]
 [ext_resource type="Theme" uid="uid://dparu4wmkv47y" path="res://common/theme/font_basic.tres" id="3_cujjb"]
 [ext_resource type="Texture2D" uid="uid://d1bigsv7f148e" path="res://phone/sprite/phone_bg.png" id="3_m4x5r"]
-[ext_resource type="PackedScene" uid="uid://cy5bxpb1xxmhm" path="res://phone/scene/phone.tscn" id="5_cujjb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fun32"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -94,10 +93,6 @@ text = "Exit"
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_73da7")
-
-[node name="ui_layer" type="CanvasLayer" parent="."]
-
-[node name="phone" parent="ui_layer" instance=ExtResource("5_cujjb")]
 
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/return_button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/menu_button" to="." method="_on_menu_button_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://boaps2nt537h"]
+
+[node name="customer_module" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 0.239998
+offset_bottom = 0.0299969
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 333.336
+anchor_bottom = 1000.1
+offset_right = 6.86646e-05
+offset_bottom = -9.99999
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

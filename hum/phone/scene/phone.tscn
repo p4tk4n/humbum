@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy5bxpb1xxmhm"]
+[gd_scene load_steps=5 format=3 uid="uid://cy5bxpb1xxmhm"]
 
 [ext_resource type="Script" uid="uid://o3jjps07bw7e" path="res://phone/script/phone.gd" id="1_n1xwe"]
+[ext_resource type="Texture2D" uid="uid://d1bigsv7f148e" path="res://phone/sprite/phone_bg.png" id="2_1bt7u"]
+[ext_resource type="PackedScene" uid="uid://boaps2nt537h" path="res://phone/scene/customer_module.tscn" id="3_nmvop"]
 
-[node name="phone" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmvop"]
+texture = ExtResource("2_1bt7u")
+
+[node name="phone" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_n1xwe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nmvop")
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+vertical = true
+
+[node name="customer_module" parent="Panel/BoxContainer" instance=ExtResource("3_nmvop")]
+layout_mode = 2

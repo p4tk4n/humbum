@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbkgpp6jo7r7"]
+[gd_scene load_steps=5 format=3 uid="uid://wbkgpp6jo7r7"]
 
 [ext_resource type="Script" uid="uid://cy2qh3ebjgxcs" path="res://player/script/player.gd" id="1_qvlqn"]
+[ext_resource type="PackedScene" uid="uid://cy5bxpb1xxmhm" path="res://phone/scene/phone.tscn" id="2_mn6jy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mbkfo"]
 
@@ -24,7 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316328, 0.115099)
 
 [node name="hud_layer" type="CanvasLayer" parent="."]
 
-[node name="BoxContainer" type="BoxContainer" parent="hud_layer"]
+[node name="sprint_bar_container" type="BoxContainer" parent="hud_layer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -37,10 +38,23 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="sprint_bar" type="ProgressBar" parent="hud_layer/BoxContainer"]
+[node name="sprint_bar" type="ProgressBar" parent="hud_layer/sprint_bar_container"]
 custom_minimum_size = Vector2(430, 5)
 layout_mode = 2
 show_percentage = false
+
+[node name="phone_container" type="BoxContainer" parent="hud_layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="phone" parent="hud_layer/phone_container" instance=ExtResource("2_mn6jy")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="sprint_delay_timer" type="Timer" parent="."]
 one_shot = true
