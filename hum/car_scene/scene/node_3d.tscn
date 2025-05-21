@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpp7erdkbl2kn"]
+[gd_scene load_steps=6 format=3 uid="uid://bpp7erdkbl2kn"]
 
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="1_41o0g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7y2f7"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_41o0g"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41o0g"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_56jl0"]
+
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100695, 0.0549812, -0.0737462)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 0.01, 0, 0, 0, 8, 0.804924, 18.4276, 1.90952)
 mesh = SubResource("BoxMesh_7y2f7")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="MeshInstance3D"]
-transform = Transform3D(0.09625, 0, 0, 0, 0.621301, -39.6369, 0, 0.00506581, 0.00759578, -0.207677, 138.751, -0.41591)
+transform = Transform3D(0.09625, 0, 0, 0, 0.621301, -39.6369, 0, 0.00506581, 0.00759578, -0.207677, 126.938, -0.41591)
 polygon = PackedVector2Array(0.685945, 0.0458641, 1.04777, -0.310738, 1.02504, 2.30844, 0.664195, 2.04256)
 mode = 1
 spin_degrees = 360.0
@@ -20,7 +27,7 @@ spin_sides = 13
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="MeshInstance3D/CSGPolygon3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999998, 0, -0.999998, -4.37113e-08, -0.554398, 1.96999, 0.614967)
 polygon = PackedVector2Array(0.0224246, 1.08142, 0.471058, 0.93008, 0.70116, 0.920773, 1.18792, 1.04992, 1.26119, 0.95937, 0.76453, 0.548096, 0.61373, -0.155514, 0.441763, -0.15271, 0.357479, 0.571949, -0.0519773, 0.921028)
-depth = 0.5
+depth = 1.86
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="MeshInstance3D"]
 transform = Transform3D(-0.249808, -0.00490312, -2.14322e-10, 0, -4.37114e-06, 100, -0.00980624, 0.124904, 5.45972e-09, -0.148011, 57.5203, -0.303112)
@@ -64,3 +71,32 @@ depth = 0.08
 
 [node name="player" parent="." instance=ExtResource("1_41o0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131612, 19.5372, -0.000809669)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 2.005, 0, 0, 0, 8, 2.784, 19.395, 4)
+mesh = SubResource("BoxMesh_41o0g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 3, 0, 0, 0, 8.545, -1.212, 19.93, 4.27036)
+mesh = SubResource("BoxMesh_41o0g")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -1.20873, 18.903, -0.995317)
+polygon = PackedVector2Array(-1.09258, -0.479609, -1.00099, 0.931108, 0.955772, 2.50033, 0.999921, -0.481386)
+depth = 0.01
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGPolygon3D"]
+transform = Transform3D(0.100868, -1.54657e-09, 1.14278, -0.329925, -2.09007e-09, 0.349384, 1.06713e-08, -0.05, -4.99527e-08, 0.479046, 1.28807, 0.0295618)
+operation = 2
+mesh = SubResource("CylinderMesh_41o0g")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGPolygon3D"]
+transform = Transform3D(0.18036, -9.10471e-10, 2.0328, -0.561756, -1.24857e-09, 0.65266, 1.79059e-08, -0.03, -8.88564e-08, 0.197653, 1.06097, -0.0142156)
+operation = 2
+mesh = SubResource("CylinderMesh_56jl0")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGPolygon3D"]
+transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -0.00456727, 0.57412, 0.0149156)
+operation = 2
+polygon = PackedVector2Array(-1.84347, -0.00950241, -1.76289, 0.512764, 2.14134, 2.07071, 2.1704, 0.132656)
+depth = 0.07
