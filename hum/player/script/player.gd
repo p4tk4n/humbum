@@ -4,7 +4,7 @@ var speed
 const WALK_SPEED := 5.0
 const SPRINT_SPEED := 8.0
 const JUMP_VELOCITY := 4.5
-var gravity := 9.81
+var gravity := 15.0
 var sensitivity := 0.02
 
 #head bobbing
