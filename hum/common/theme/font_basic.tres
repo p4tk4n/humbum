@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dparu4wmkv47y"]
+
+[ext_resource type="FontFile" uid="uid://beykk3ilpu0q4" path="res://common/theme/Insomnia 1.ttf" id="1_kf7ma"]
+
+[resource]
+default_font = ExtResource("1_kf7ma")

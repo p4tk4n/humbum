@@ -15,8 +15,12 @@ var bobbing_t := 0.0
 const BASE_FOV := 75.0
 const FOV_CHANGE := 1.8
 
+var sprint_bar_progress_speed = 20
+var can_sprint = true
+
 @onready var head = $head
 @onready var camera = $head/Camera3D
+@onready var sprint_bar = $hud_layer/BoxContainer/sprint_bar
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -28,20 +32,30 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	#gravitacia
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle jump.
+	# skakanie
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_pressed("sprint"):
+	#sprintovanie
+	if Input.is_action_pressed("sprint") and can_sprint:
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 	
-	# Get the input direction and handle the movement/deceleration.
+	if speed > 5.0 and sprint_bar.value < sprint_bar.max_value:
+		sprint_bar.value += delta * sprint_bar_progress_speed	 	
+	elif speed < 5.0:
+		sprint_bar.value -= delta * sprint_bar_progress_speed
+	elif sprint_bar.value >= sprint_bar.max_value:
+		can_sprint = false
+	elif sprint_bar.value < sprint_bar.max_value:
+		can_sprint = true
+		
+		
+	#movement
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
