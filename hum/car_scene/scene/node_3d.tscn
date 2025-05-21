@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpp7erdkbl2kn"]
+[gd_scene load_steps=9 format=3 uid="uid://bpp7erdkbl2kn"]
 
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="1_41o0g"]
 [ext_resource type="Texture2D" uid="uid://d0xsxfrymga4l" path="res://car_scene/texturepack/brm brm.png" id="2_56jl0"]
@@ -13,6 +13,8 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_strvx"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_56jl0"]
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973487, 0.863895, 0.0975623)
 
@@ -20,13 +22,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973487, 0.863895, 0.09756
 transform = Transform3D(4, 0, 0, 0, 0.01, 0, 0, 0, 8, 0.802587, 18.4402, 0.406565)
 mesh = SubResource("BoxMesh_7y2f7")
 
-[node name="lave zadne dvere" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(0.005, 0, 0, 0, 262.5, 0, 0, 0, 0.25, -0.502214, 93.2098, 0.0687288)
+[node name="prave zadne dvere" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.005, 0, 0, 0, 262.5, 0, 0, 0, 0.25, 0.499, 93.21, 0.07)
 mesh = SubResource("BoxMesh_41o0g")
 skeleton = NodePath("../..")
 
-[node name="prave zadne dvere" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(0.005, 0, 0, 0, 262.5, 0, 0, 0, 0.25, 0.499, 93.21, 0.07)
+[node name="lave zadne dvere" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.005, 0, 0, 0, 262.5, 0, 0, 0, 0.25, -0.506481, 93.2101, 0.070158)
 mesh = SubResource("BoxMesh_41o0g")
 skeleton = NodePath("../..")
 
@@ -149,3 +151,8 @@ depth = 0.02
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1.235, 0, 0, 0, 0.035, 0.796494, 19.0308, -2.4633)
 mesh = SubResource("BoxMesh_strvx")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 0.015, 0, 0, 0, 3.4, 0.8, 20.65, 0.273)
+flip_faces = true
+mesh = SubResource("BoxMesh_56jl0")
