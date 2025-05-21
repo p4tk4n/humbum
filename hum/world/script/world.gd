@@ -29,8 +29,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		_toggle_pause_menu()
 	
-
-
 func _on_return_button_pressed() -> void:
 	_toggle_pause_menu("off")
 
