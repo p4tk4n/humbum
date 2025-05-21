@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgotxrbycmc5h"]
+[gd_scene load_steps=8 format=3 uid="uid://bgotxrbycmc5h"]
 
 [ext_resource type="Script" uid="uid://b0tne5fenda5y" path="res://world/script/world.gd" id="1_8t1cy"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fun32"]
-[ext_resource type="Texture2D" uid="uid://drljaq0vnjlgt" path="res://world/sprite/ground_texture.png" id="3_73da7"]
+[ext_resource type="Texture2D" uid="uid://caytwje3b08ab" path="res://world/resources/1K/Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="3_73da7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fun32"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,16 +17,10 @@ sky = SubResource("Sky_73da7")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_73da7"]
-size = Vector3(100, 1, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41er0"]
-albedo_color = Color(0.505344, 0.505344, 0.505344, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73da7"]
 albedo_texture = ExtResource("3_73da7")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_73da7"]
-points = PackedVector3Array(50.7837, 1.88095, 50.7837, -50.7837, -1.29365, -50.7837, -50.7837, 1.88095, -50.7837, 50.7837, -1.29365, -50.7837, -50.7837, -1.29365, 50.7837, -50.7837, 1.88095, 50.7837, 50.7837, 1.88095, -50.7837, 50.7837, -1.29365, 50.7837)
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130314, 0.0016861, 0.203369)
@@ -88,15 +82,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Exit"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0583246, -1.90304e-06, -0.0716136)
-mesh = SubResource("BoxMesh_73da7")
-surface_material_override/0 = SubResource("StandardMaterial3D_41er0")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_73da7")
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_73da7")
 
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/return_button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="pause_menu/Panel/BoxContainer/menu_button" to="." method="_on_menu_button_pressed"]
