@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b68nev4koikv"]
+
+[ext_resource type="Texture2D" uid="uid://drljaq0vnjlgt" path="res://world/sprite/ground_texture.png" id="1_confn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cc1te"]
+size = Vector3(10, 50, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hcjg"]
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+metallic_specular = 0.35
+roughness = 0.35
+roughness_texture = ExtResource("1_confn")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_confn"]
+points = PackedVector3Array(-5, -23.5782, -7.32993, 5.71429, 25.3919, 7.97619, -5, 23.5782, 7.4093, 5.71429, -25.3919, 7.97619, 5.71429, 25.3919, -7.89683, 5.71429, -25.3919, -7.89683, -5, -23.5782, 7.4093, -5, 23.5782, -7.32993)
+
+[node name="bytovka" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+mesh = SubResource("BoxMesh_cc1te")
+surface_material_override/0 = SubResource("StandardMaterial3D_8hcjg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_confn")

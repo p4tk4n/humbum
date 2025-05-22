@@ -76,6 +76,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
+icon_alignment = 1
 
 [connection signal="pressed" from="Panel/apps/taxi_app" to="." method="_on_taxi_app_pressed"]
 [connection signal="pressed" from="Panel/apps/home_button_app" to="." method="_on_home_button_app_pressed"]
