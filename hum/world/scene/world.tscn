@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0tne5fenda5y" path="res://world/script/world.gd" id="1_8t1cy"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fun32"]
 [ext_resource type="Texture2D" uid="uid://caytwje3b08ab" path="res://world/resources/1K/Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="3_73da7"]
-[ext_resource type="PackedScene" uid="uid://b68nev4koikv" path="res://domy/bytovka_1/resources/bytovka.tscn" id="4_41er0"]
+[ext_resource type="PackedScene" uid="uid://b68nev4koikv" path="res://domy/bytovka_1/scene/bytovka.tscn" id="4_41er0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fun32"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
