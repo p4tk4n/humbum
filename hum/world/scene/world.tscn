@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgotxrbycmc5h"]
+[gd_scene load_steps=8 format=3 uid="uid://bgotxrbycmc5h"]
 
 [ext_resource type="Script" uid="uid://b0tne5fenda5y" path="res://world/script/world.gd" id="1_8t1cy"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fun32"]
 [ext_resource type="Texture2D" uid="uid://caytwje3b08ab" path="res://world/resources/1K/Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="3_73da7"]
-[ext_resource type="Theme" uid="uid://dparu4wmkv47y" path="res://common/theme/font_basic.tres" id="3_cujjb"]
-[ext_resource type="Texture2D" uid="uid://d1bigsv7f148e" path="res://phone/sprite/phone_bg.png" id="3_m4x5r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fun32"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,9 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_73da7")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gk8uj"]
-texture = ExtResource("3_m4x5r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73da7"]
 albedo_texture = ExtResource("3_73da7")
@@ -42,58 +37,7 @@ environment = SubResource("Environment_41er0")
 [node name="player" parent="." instance=ExtResource("2_fun32")]
 transform = Transform3D(1.00409, 0, 0, 0, 1.00409, 0, 0, 0, 1.00409, 0, 20.0746, 0)
 
-[node name="pause_menu" type="BoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Panel" type="Panel" parent="pause_menu"]
-custom_minimum_size = Vector2(100, 200)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_cujjb")
-theme_override_styles/panel = SubResource("StyleBoxTexture_gk8uj")
-
-[node name="BoxContainer" type="BoxContainer" parent="pause_menu/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-vertical = true
-
-[node name="return_button" type="Button" parent="pause_menu/Panel/BoxContainer"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Return"
-
-[node name="menu_button" type="Button" parent="pause_menu/Panel/BoxContainer"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Menu"
-
-[node name="exit_button" type="Button" parent="pause_menu/Panel/BoxContainer"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Exit"
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_73da7")
-
-[connection signal="pressed" from="pause_menu/Panel/BoxContainer/return_button" to="." method="_on_return_button_pressed"]
-[connection signal="pressed" from="pause_menu/Panel/BoxContainer/menu_button" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="pause_menu/Panel/BoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

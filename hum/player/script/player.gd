@@ -23,11 +23,28 @@ var can_sprint = true
 @onready var sprint_bar = $hud_layer/sprint_bar_container/sprint_bar
 @onready var sprint_delay_timer = $sprint_delay_timer
 @onready var phone = $hud_layer/phone_container/phone
+@onready var pause_menu = $hud_layer/pause_menu
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_toggle_phone_menu()
+	_toggle_pause_menu()
 	
+func _toggle_pause_menu(state = null):
+	match state:
+		"on":
+			pause_menu.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		"off":
+			pause_menu.visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		_:
+			pause_menu.visible = not pause_menu.visible
+			if Input.MOUSE_MODE_CAPTURED:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _toggle_phone_menu(state = null):
 	match state:
 		"on":
@@ -61,6 +78,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("open_phone"):
 		_toggle_phone_menu()
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		_toggle_pause_menu()
 	
 	# Sprint control
 	if Input.is_action_pressed("sprint") and can_sprint:
@@ -115,5 +135,11 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * bobbing_freq / 2) * bobbing_amp
 	return pos
 
-#func _on_sprint_delay_timer_timeout() -> void:
+func _on_return_button_pressed() -> void:
+	_toggle_pause_menu("off")
+
+func _on_menu_button_pressed() -> void:
+	global._switch_to_scene("res://main_menu/scene/main_menu.tscn")
 	
+func _on_exit_button_pressed() -> void:
+	global._exit_game()
