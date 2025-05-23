@@ -28,6 +28,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.810324, 0)
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316328, 0.115099)
 
+[node name="look_ray" type="RayCast3D" parent="head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.106, 0.115)
+target_position = Vector3(0, 0, -3)
+
 [node name="hud_layer" type="CanvasLayer" parent="."]
 
 [node name="sprint_bar_container" type="BoxContainer" parent="hud_layer"]

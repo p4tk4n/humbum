@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgotxrbycmc5h"]
+[gd_scene load_steps=10 format=3 uid="uid://bgotxrbycmc5h"]
 
 [ext_resource type="Script" uid="uid://b0tne5fenda5y" path="res://world/script/world.gd" id="1_8t1cy"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fun32"]
 [ext_resource type="Texture2D" uid="uid://caytwje3b08ab" path="res://world/resources/1K/Poliigon_ConcreteFloorPoured_7656_BaseColor.jpg" id="3_73da7"]
 [ext_resource type="PackedScene" uid="uid://b68nev4koikv" path="res://domy/bytovka_1/scene/bytovka.tscn" id="4_41er0"]
+[ext_resource type="PackedScene" uid="uid://bpp7erdkbl2kn" path="res://car_scene/scene/node_3d.tscn" id="5_m4x5r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fun32"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,3 +46,9 @@ material = SubResource("StandardMaterial3D_73da7")
 
 [node name="bytovka" parent="." instance=ExtResource("4_41er0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8435, -0.152344, 0.126335)
+
+[node name="car" parent="." groups=["car"] instance=ExtResource("5_m4x5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973487, -17.2649, 0.0975623)
+
+[node name="player_seat" type="Marker3D" parent="car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.137266, 19.0312, -0.5106)

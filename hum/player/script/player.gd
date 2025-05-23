@@ -26,9 +26,9 @@ var can_sprint = true
 @onready var pause_menu = $hud_layer/pause_menu
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	_toggle_phone_menu()
 	_toggle_pause_menu()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _toggle_pause_menu(state = null):
 	match state:

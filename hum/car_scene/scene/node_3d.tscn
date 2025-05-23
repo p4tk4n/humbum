@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpp7erdkbl2kn"]
+[gd_scene load_steps=13 format=3 uid="uid://bpp7erdkbl2kn"]
 
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="1_41o0g"]
+[ext_resource type="Script" uid="uid://d274f87fefbia" path="res://car_scene/script/car.gd" id="1_strvx"]
 [ext_resource type="Texture2D" uid="uid://d0xsxfrymga4l" path="res://car_scene/texturepack/brm brm.png" id="2_56jl0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_strvx"]
@@ -21,8 +22,8 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_gs8cs"]
 
-[node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973487, 0.863895, 0.0975623)
+[node name="car" type="Node3D"]
+script = ExtResource("1_strvx")
 
 [node name="palubna doska" type="CSGMesh3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1.235, 0, 0, 0, 0.035, 0.796494, 19.0308, -2.4633)
@@ -142,7 +143,7 @@ operation = 2
 polygon = PackedVector2Array(-1.98988, 0.111214, -1.95508, 0.3316, 2.09049, 2.07318, 2.09398, 0.150482)
 depth = 0.07
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="inspo" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.35255, 18.8056, -0.380887)
 texture = ExtResource("2_56jl0")
 
@@ -162,7 +163,7 @@ flip_faces = true
 mesh = SubResource("BoxMesh_56jl0")
 
 [node name="kufor" type="CSGMesh3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 0.0197939, -0.222674, 0, 0.00286398, 1.53897, 0.791881, 19.5759, 3.77106)
+transform = Transform3D(4, 0, 0, 0, 0.0197939, -0.222674, 0, 0.00286398, 1.53897, 0.803511, 19.5759, 3.75749)
 mesh = SubResource("BoxMesh_5tlfj")
 
 [node name="zadne okno" type="CSGMesh3D" parent="."]
