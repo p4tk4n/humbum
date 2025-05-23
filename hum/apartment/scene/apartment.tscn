@@ -1,14 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl170vch18xi8"]
+[gd_scene load_steps=2 format=3 uid="uid://cl170vch18xi8"]
 
-[ext_resource type="Texture2D" uid="uid://cjiy4h4wcpgg5" path="res://apartment/sprite/podlaha/Poliigon_WoodVeneerOak_7760_BaseColor.jpg" id="1_e6f0j"]
 [ext_resource type="PackedScene" uid="uid://wbkgpp6jo7r7" path="res://player/scene/player.tscn" id="2_fa0h8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa0h8"]
-albedo_texture = ExtResource("1_e6f0j")
-uv1_triplanar = true
-
 [node name="Apartment" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5709, -3.07407, -39.9828)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445018, -0.00144351, -0.586504)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.983255, 0.00222637, 0.182222, 0, 0.999925, -0.012217, -0.182236, -0.0120124, -0.983182, 1170.57, 978.412, -4181.15)
@@ -17,19 +12,42 @@ light_energy = 7.0
 shadow_enabled = true
 directional_shadow_max_distance = 200.0
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25408, 0.417906, -7.71758)
+size = Vector3(11.6935, 1, 16.4216)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 711.944, 233.389, -264.347)
-size = Vector3(321.808, 59.344, 182.768)
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45866, 2.59773, -0.0114746)
+size = Vector3(0.742557, 4.36768, 16.3902)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 529.708, 136.007, -15.1411)
-size = Vector3(96.8204, 0.001, 100)
-material = SubResource("StandardMaterial3D_fa0h8")
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00344706, 2.60528, -7.84598)
+size = Vector3(11.6654, 4.39905, 0.740234)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05421, 0.261597, -0.00317383)
+operation = 2
+size = Vector3(3.10843, 2.01685, 0.775879)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57234, 2.43306, -0.0120134)
+size = Vector3(0.701294, 4.69977, 16.394)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211221, 2.63643, 7.87259)
+size = Vector3(11.1944, 4.48364, 0.667908)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62866, -0.606628, -0.00942492)
+operation = 2
+size = Vector3(1.85205, 3.03992, 0.687988)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0479431, 5.09732, 0.0207605)
+size = Vector3(11.6583, 0.57605, 16.3882)
 
 [node name="player" parent="." instance=ExtResource("2_fa0h8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.3953, 107.839, -59.3687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32339, 1.92869, -2.93086)
 
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1114.06, 726.109, -214.394)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82797, 36.6697, -6.93591)

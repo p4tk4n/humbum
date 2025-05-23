@@ -27,6 +27,10 @@ window/size/viewport_height=270
 window/size/mode=3
 window/stretch/scale=4.0
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 forward={
