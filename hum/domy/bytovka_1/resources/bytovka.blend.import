@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0s6wcxmch8r7"
+uid="uid://c0yjaonrbf5sm"
 path="res://.godot/imported/bytovka.blend-7ad89c78e1e2539b697902563847dd99.scn"
 
 [deps]
@@ -32,13 +32,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cube_001": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
