@@ -28,7 +28,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_nmvop")
 
 [node name="taxi_app_container" type="BoxContainer" parent="Panel"]
-visible = false
 z_index = 4
 layout_mode = 1
 anchors_preset = 15

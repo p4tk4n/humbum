@@ -1,5 +1,7 @@
-[gd_scene format=3 uid="uid://b68nev4koikv"]
+[gd_scene load_steps=2 format=3 uid="uid://b68nev4koikv"]
+
+[ext_resource type="PackedScene" uid="uid://d01qu68ngd5xh" path="res://domy/bytovka_1/resources/bytovka.glb" id="1_ir8l5"]
 
 [node name="bytovka" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="bytovka" parent="." instance=ExtResource("1_ir8l5")]
